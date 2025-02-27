@@ -1,19 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Contact Form Validation
-    const form = document.getElementById("contact-form");
-    if (form) {
-        form.addEventListener("submit", function (event) {
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('nav ul li a').forEach(anchor => {
+        anchor.addEventListener('click', function (event) {
             event.preventDefault();
-            const name = document.getElementById("name").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const message = document.getElementById("message").value.trim();
-
-            if (name === "" || email === "" || message === "") {
-                alert("Please fill in all fields.");
-            } else {
-                alert("Message sent! I'll get back to you soon.");
-                form.reset();
-            }
+            const targetId = this.getAttribute('href').substring(1);
+            document.getElementById(targetId).scrollIntoView({
+                behavior: 'smooth'
+            });
         });
-    }
+    });
 });
