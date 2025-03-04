@@ -37,3 +37,13 @@ document.addEventListener("DOMContentLoaded", function () {
         window.scrollTo({ top: 0, behavior: "smooth" });
     });
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+    const galleryItems = document.querySelectorAll(".gallery-item iframe");
+
+    galleryItems.forEach(item => {
+        item.addEventListener("click", function() {
+            window.open(this.src, "_blank", "width=1000,height=600");
+        });
+    });
+});
